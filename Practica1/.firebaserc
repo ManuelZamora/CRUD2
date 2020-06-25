@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "login-ng-1a7a4": {
+      "hosting": {
+        "Practica1": [
+          "login-ng-1a7a4"
+        ]
+      }
+    }
+  }
+}

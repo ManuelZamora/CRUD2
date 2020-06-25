@@ -1,0 +1,55 @@
+<div class="container" >
+  <div class="row">
+      <div class="col-12">
+          <router-outlet></router-outlet>
+      </div>
+  </div>
+</div>
+<div class="col-md-4">
+
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mt-4">
+      <ul class="list-group">
+        <li *ngFor="let persona of empresaArray" class="list-group-item list-group-item-action"
+        (click)="openForEdit(persona)"
+        [class.active]="persona == selectedpersona"
+        >
+          <span class="badge badge-primary">{{persona.id}}</span> - {{persona.name}}
+        </li>
+      </ul>
+      <div class="card mt-4">
+        <div class="card-body">
+          <div class="card-title">
+            Inserta una nueva Persona
+          </div>
+         <div class="form-group">
+          <input type="text" [(ngModel)]="selectedpersona.rfc"  placeholder="RFC" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="text" [(ngModel)]="selectedpersona.name" placeholder="Nombre" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="text" [(ngModel)]="selectedpersona.ap_paterno" placeholder="Apellido Paterno" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="text" [(ngModel)]="selectedpersona.ap_materno" placeholder="Apellido Materno" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="text" [(ngModel)]="selectedpersona.sexo" placeholder="Sexo" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="text" [(ngModel)]="selectedpersona.direccion" placeholder="Direccion" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="text" [(ngModel)]="selectedpersona.correo" placeholder="Correo" class="form-control">
+        </div>
+        <button (click)="addOrEdit()" class="btn btn-success">
+          Agregar
+        </button>
+        <button *ngIf="selectedpersona.id !==0" class="btn btn-danger" (click)="delete()">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
